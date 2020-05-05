@@ -1,3 +1,8 @@
+# Brewdog pizza and steak matching app
+An app to match best beer to drink with pizza or steak
+
+Live version of the app can be found at: 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
