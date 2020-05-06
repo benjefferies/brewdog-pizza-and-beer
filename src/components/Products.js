@@ -1,11 +1,11 @@
-import React from "react";
-import axios from "axios";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import axios from "axios";
+import React from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Swipeable } from 'react-swipeable';
 import Beer from "./Beer";
 import { beers } from "./NavBar";
-import { withStyles } from "@material-ui/core";
-import { Swipeable } from 'react-swipeable'
 
 const styles = (theme) => ({
   product: {

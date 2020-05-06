@@ -1,4 +1,4 @@
-import { withStyles, Button } from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import clsx from 'clsx';
 import React from 'react';

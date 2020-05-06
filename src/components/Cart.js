@@ -6,19 +6,8 @@ import React from "react";
 import Beer from "./Beer";
 
 const styles = (theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   deleteButton: {
     marginRight: theme.spacing(2),
-  },
-  media: {
-    height: 140,
-    width: "auto",
-    margin: "auto",
-  },
-  description: {
-    textAlign: "center",
   },
   checkoutCart: {
     padding: theme.spacing(2),
@@ -28,21 +17,7 @@ const styles = (theme) => ({
       paddingLeft: theme.spacing(20),
       paddingRight: theme.spacing(20),
     },
-  },
-  modalStyle: {
-    position: "absolute",
-    top: "10%",
-    left: "10%",
-    overflow: "scroll",
-    height: "100%",
-    display: "block",
-  },
-  modelImage: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    height: 140,
-  },
+  }
 });
 
 class Cart extends React.Component {

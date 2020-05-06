@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { AppBar } from '@material-ui/core';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
-import FastfoodIcon from '@material-ui/icons/Fastfood';
+import { makeStyles } from '@material-ui/core/styles';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
-import { AppBar } from '@material-ui/core';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
+import LocalPizzaIcon from '@material-ui/icons/LocalPizza';
+import React from 'react';
 
 const useStyles = makeStyles({
   navBar: {

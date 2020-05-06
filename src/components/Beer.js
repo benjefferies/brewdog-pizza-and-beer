@@ -41,10 +41,7 @@ const styles = (theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
     height: 140,
-  },
-  product: {
-    padding: theme.spacing(1),
-  },
+  }
 });
 
 class Beer extends React.Component {
