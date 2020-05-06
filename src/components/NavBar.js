@@ -10,8 +10,6 @@ import { AppBar } from '@material-ui/core';
 const useStyles = makeStyles({
   navBar: {
     width: '100%',
-    position: 'fixed',
-    bottom: 0,
     height: 50
   },
 });
@@ -20,7 +18,7 @@ function NavBar(props) {
   const { setBeerSelection, beerSelection } = props;
   const classes = useStyles();
   return (
-    <AppBar position="fixed">
+    <AppBar position="static">
       <BottomNavigation
         value={beerSelection}
         onChange={(_, beerSelection) => {

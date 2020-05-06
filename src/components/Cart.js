@@ -1,13 +1,9 @@
-import { Grid, withStyles, Paper, Typography } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
+import { Grid, Paper, Typography, withStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import Modal from "@material-ui/core/Modal";
-import Toolbar from "@material-ui/core/Toolbar";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import DeleteIcon from "@material-ui/icons/Delete";
 import React from "react";
 import Beer from "./Beer";
-import DeleteIcon from "@material-ui/icons/Delete";
 
 const styles = (theme) => ({
   root: {
@@ -28,6 +24,10 @@ const styles = (theme) => ({
     padding: theme.spacing(2),
     maxHeight: "70vh",
     overflow: "auto",
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: theme.spacing(20),
+      paddingRight: theme.spacing(20),
+    },
   },
   modalStyle: {
     position: "absolute",
@@ -45,11 +45,10 @@ const styles = (theme) => ({
   },
 });
 
-class CartNavBar extends React.Component {
+class Cart extends React.Component {
   constructor() {
     super();
     this.state = {
-      open: false,
       beers: [],
     };
   }
@@ -77,11 +76,14 @@ class CartNavBar extends React.Component {
       }
     }
     localStorage.setItem("cart", JSON.stringify(beers));
-    let open = true;
-    if (beers.length === 0) {
-      open = false;
+    this.setState({ beers: beers });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.open !== this.props.open) {
+      let beers = JSON.parse(localStorage.getItem("cart"));
+      this.setState({ beers: beers });
     }
-    this.setState({ beers: beers, open: open });
   }
 
   render() {
@@ -113,44 +115,15 @@ class CartNavBar extends React.Component {
           <Grid item xs={6}>
           <Button color="primary">Checkout</Button>
           </Grid>
-          <Grid item xs={6}>
-          <Button
-            onClick={() => this.setState({ open: false })}
-            color="secondary"
-          >
-            Close
-          </Button>
-          </Grid>
         </Grid>
       </Paper>
     );
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.cartButton}
-              color="inherit"
-              aria-label="menu"
-              onClick={() =>
-                this.setState({ open: true, beers: this.getCart() })
-              }
-            >
-              <ShoppingCartIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Modal
-          open={this.state.open}
-          onClose={() => console.log("")}
-          className={classes.modalStyle}
-        >
+      <Paper>
           {body}
-        </Modal>
-      </div>
+      </Paper>
     );
   }
 }
-export default withStyles(styles)(CartNavBar);
+export default withStyles(styles)(Cart);

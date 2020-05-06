@@ -21,13 +21,20 @@ const styles = (theme) => ({
     maxHeight: "70vh",
     overflow: 'auto'
   },
+  text: {
+    textAlign: "center"
+  },
   modalStyle:{
     position:'absolute',
     top:'10%',
     left:'10%',
     overflow:'scroll',
     height:'100%',
-    display:'block'
+    display:'block',
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: "25%",
+      width: "50%",
+    },
   },
   modelImage: {
     display: "block",
@@ -72,13 +79,11 @@ class Beer extends React.Component {
           <Grid item xs={4}>
             <img className={classes.modelImage} src={image_url} alt={name}/>
           </Grid>
-          <Grid item xs={8}>
+          <Grid className={classes.text} item xs={12}>
             <h2>{name}</h2>
-          </Grid>
-          <Grid item xs={4}>
             <h4>{abv}% abv</h4>
           </Grid>
-          <Grid item xs={2}></Grid>
+          <Grid className={classes.text} item xs={2}></Grid>
           <Grid item xs={8}>
             <p>{tagline}</p>
             <p>Food pairing</p>
@@ -89,15 +94,19 @@ class Beer extends React.Component {
             </ul>
             <p>{description}</p>
           </Grid>
+          <Grid item xs={6} md={4}>
           <Button color="primary" onClick={() => {
             this.addBeer(beer)
             this.setState({open: false})
           }}>
             Add
           </Button>
+          </Grid>
+          <Grid item xs={6} md={4}>
           <Button onClick={() => this.setState({open: false})} color="secondary">
             Close
           </Button>
+          </Grid>
         </Grid>
       </Paper>
     );

@@ -9,8 +9,14 @@ import { Swipeable } from 'react-swipeable'
 
 const styles = (theme) => ({
   product: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(1)
   },
+  container: {
+    [theme.breakpoints.up('lg')]: {
+      paddingLeft: theme.spacing(20),
+      paddingRight: theme.spacing(20),
+    },
+  }
 });
 
 class Product extends React.Component {
@@ -100,17 +106,8 @@ class Product extends React.Component {
           next={() => this.fetchDataByPage(this.state.page + 1)}
           hasMore={this.state.hasMore}
           loader={<h4>Loading...</h4>}
-          // below props only if you need pull down functionality
-          refreshFunction={this.refresh}
-          pullDownToRefresh
-          pullDownToRefreshContent={
-            <h3 style={{ textAlign: "center" }}>&#8595; Pull down to refresh</h3>
-          }
-          releaseToRefreshContent={
-            <h3 style={{ textAlign: "center" }}>&#8593; Release to refresh</h3>
-          }
         >
-          <Grid container alignItems={"flex-end"}>
+          <Grid container alignItems={"flex-end"} className={classes.container}>
             {beers}
           </Grid>
         </InfiniteScroll>
