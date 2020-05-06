@@ -1,7 +1,7 @@
 # Brewdog pizza and steak matching app
 An app to match best beer to drink with pizza or steak
 
-Live version of the app can be found at: https://5eb165a0fb57ed0007e2ca01--thirsty-hopper-cceed6.netlify.app/
+Live version of the app can be found at: https://thirsty-hopper-cceed6.netlify.app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
